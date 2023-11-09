@@ -1,16 +1,17 @@
 {
   "name": "my-monorepo",
-  "private": true,
-  "workspaces": [
-    "packages/*"
+  "pre-commit": [
+    "build:ci"
   ],
+  "private": true,
   "scripts": {
     "build:ci": "cd .circleci && make"
   },
+  "trustedDependencies": ["pre-commit"],
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "pre-commit": "^1.2.2"
-  },
-  "pre-commit": [
-    "build:ci"
-  ]
+  }
 }
