@@ -1,0 +1,4 @@
+executors: 
+  bun:
+    docker:
+      - image: oven/bun:lts

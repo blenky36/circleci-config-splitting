@@ -1,0 +1,7 @@
+parameters:
+  service-a:
+    type: boolean
+    default: false
+  service-b:
+    type: boolean
+    default: false

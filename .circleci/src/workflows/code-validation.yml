@@ -1,0 +1,9 @@
+jobs:
+  - test:
+      matrix:
+        parameters:
+          package: ["service-a", "service-b"]
+  - types:
+      matrix:
+        parameters:
+          package: ["service-a", "service-b"]
