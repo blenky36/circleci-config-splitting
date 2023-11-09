@@ -1,0 +1,47 @@
+executors:
+    bun:
+        docker:
+            - image: oven/bun:lts
+jobs:
+    test:
+        executor: bun
+        parameters:
+            package:
+                type: string
+        steps:
+            - run: bun install
+            - run: bun test
+        working_directory: << parameters.package >>
+    types:
+        executor: bun
+        parameters:
+            package:
+                type: string
+        steps:
+            - run: bun install
+            - run: bun types
+        working_directory: << parameters.package >>
+parameters:
+    service-a:
+        default: false
+        type: boolean
+    service-b:
+        default: false
+        type: boolean
+version: 2.1
+workflows:
+    code-validation:
+        jobs:
+            - test:
+                matrix:
+                    parameters:
+                        package:
+                            - service-a
+                            - service-b
+            - types:
+                matrix:
+                    parameters:
+                        package:
+                            - service-a
+                            - service-b
+
