@@ -1,4 +1,4 @@
-executor: base
+executor: base-small
 parameters:
   package:
     type: string

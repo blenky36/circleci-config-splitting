@@ -1,4 +1,5 @@
 executors: 
-  base:
+  base-small:
+    resource_class: small
     docker:
       - image: cimg/base:2021.04

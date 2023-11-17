@@ -1,10 +1,11 @@
 executors:
-    base:
+    base-small:
         docker:
             - image: cimg/base:2021.04
+        resource_class: small
 jobs:
     test:
-        executor: base
+        executor: base-small
         parameters:
             package:
                 type: string
@@ -13,9 +14,9 @@ jobs:
             - bun/install
             - run: bun install
             - run: bun test
-        working_directory: ~/project/<< parameters.package >>
+        working_directory: ~/project/packages/<< parameters.package >>
     types:
-        executor: base
+        executor: base-small
         parameters:
             package:
                 type: string
