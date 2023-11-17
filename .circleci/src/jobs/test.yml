@@ -2,7 +2,7 @@ executor: base
 parameters:
   package:
     type: string
-working_directory: << parameters.package >>
+working_directory: ~/project/<< parameters.package >>
 steps:
   - checkout
   - bun/install

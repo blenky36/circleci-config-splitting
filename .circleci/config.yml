@@ -13,7 +13,7 @@ jobs:
             - bun/install
             - run: bun install
             - run: bun test
-        working_directory: << parameters.package >>
+        working_directory: ~/project/<< parameters.package >>
     types:
         executor: base
         parameters:
@@ -24,7 +24,7 @@ jobs:
             - bun/install
             - run: bun install
             - run: bun types
-        working_directory: << parameters.package >>
+        working_directory: ~/project/packages/<< parameters.package >>
 orbs:
     bun: ksylvest/bun@1.0.1
 parameters:
