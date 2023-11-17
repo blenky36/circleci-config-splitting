@@ -1,8 +1,10 @@
-executor: bun
+executor: base
 parameters:
   package:
     type: string
 working_directory: << parameters.package >>
 steps:
+  - checkout
+  - bun/install
   - run: bun install
   - run: bun test

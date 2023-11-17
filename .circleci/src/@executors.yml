@@ -1,4 +1,4 @@
 executors: 
-  bun:
+  base:
     docker:
-      - image: oven/bun:lts
+      - image: cimg/base:2021.04
