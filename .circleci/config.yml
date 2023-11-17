@@ -1,26 +1,32 @@
 executors:
-    bun:
+    base:
         docker:
-            - image: oven/bun:lts
+            - image: cimg/base:2021.04
 jobs:
     test:
-        executor: bun
+        executor: base
         parameters:
             package:
                 type: string
         steps:
+            - checkout
+            - bun/install
             - run: bun install
             - run: bun test
         working_directory: << parameters.package >>
     types:
-        executor: bun
+        executor: base
         parameters:
             package:
                 type: string
         steps:
+            - checkout
+            - bun/install
             - run: bun install
             - run: bun types
         working_directory: << parameters.package >>
+orbs:
+    bun: ksylvest/bun@1.0.1
 parameters:
     service-a:
         default: false
