@@ -10,7 +10,8 @@ jobs:
             package:
                 type: string
         steps:
-            - checkout
+            - checkout:
+                path: ~/project
             - bun/install
             - run: bun install
             - run: bun test
