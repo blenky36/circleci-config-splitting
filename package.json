@@ -1,5 +1,5 @@
 {
-  "name": "my-monorepo",
+  "name": "circleci-config-splitting",
   "private": true,
   "scripts": {
     "build:ci": "cd .circleci && make"
